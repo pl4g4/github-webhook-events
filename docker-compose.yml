@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+    web:
+        build: .
+        image: githubwebhooksvents:latest
+        container_name: githubWebhookEvents
+        restart: always
+        ports:
+            - "80:80"
+            - "8080:8080"
+            - "443:443"
+        environment:
+            - GITHUBWEBHOOKSECRET=mytest
+        volumes:
+            - ./:/app
+volumes:
+    data:
+        driver: local
+
+    
